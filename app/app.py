@@ -15,11 +15,17 @@ st.title('LeadPilot')
 st.caption('Sales intelligence • Lead scoring and conversion prioritisation')
 st.info('Demo environment: all sample leads are synthetic. Predictions are estimates, not guaranteed outcomes.')
 @st.cache_resource
-def model():return load_model()
-try:m=model()
-except (FileNotFoundError,ValueError,ImportError) as exc:
-st.markdown("<style>.block-container{padding-top:2rem;max-width:1250px}h1{letter-spacing:-1.5px}div[data-testid='stMetric']{background:#f4f7fb;padding:18px;border-radius:12px;border:1px solid #e1e7ef}</style>",unsafe_allow_html=True)
-page=st.sidebar.radio('Workspace',['Overview','Score a lead','Prioritise CSV','Model insights'])
+def model():
+    return load_model()
+
+try:
+    m = model()
+except (FileNotFoundError, ValueError, ImportError) as exc:
+    st.error(f"Unable to load the trained model: {exc}")
+    st.stop()
+
+st.markdown("<style>.block-container{padding-top:2rem;max-width:1250px}h1{letter-spacing:-1.5px}div[data-testid='stMetric']{background:#f4f7fb;padding:18px;border-radius:12px;border:1px solid #e1e7ef}</style>", unsafe_allow_html=True)
+  page=st.sidebar.radio('Workspace',['Overview','Score a lead','Prioritise CSV','Model insights'])
 if page=='Overview':
     try:
         df=pd.read_csv(DATA)
