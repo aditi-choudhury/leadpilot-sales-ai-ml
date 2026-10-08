@@ -1,0 +1,32 @@
+{
+  "dataset": "Synthetic illustrative B2B leads",
+  "rows": 3500,
+  "train_rows": 2625,
+  "test_rows": 875,
+  "conversion_rate": 0.2957,
+  "cv_roc_auc": {
+    "Logistic Regression": 0.7696,
+    "Random Forest": 0.7536,
+    "Gradient Boosting": 0.7236
+  },
+  "selected_model": "Logistic Regression",
+  "test": {
+    "roc_auc": 0.7652,
+    "average_precision": 0.5959,
+    "accuracy": 0.7577,
+    "precision": 0.6407,
+    "recall": 0.4131,
+    "f1": 0.5023,
+    "brier": 0.168,
+    "confusion_matrix": [
+      [
+        556,
+        60
+      ],
+      [
+        152,
+        107
+      ]
+    ]
+  }
+}

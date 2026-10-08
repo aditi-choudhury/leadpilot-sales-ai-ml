@@ -1,0 +1,3 @@
+CREATE TABLE IF NOT EXISTS leads (lead_id TEXT PRIMARY KEY,lead_source TEXT,industry TEXT);
+CREATE TABLE IF NOT EXISTS interactions (id INTEGER PRIMARY KEY AUTOINCREMENT,lead_id TEXT NOT NULL,interaction_type TEXT NOT NULL,interaction_date TEXT NOT NULL,outcome TEXT,FOREIGN KEY(lead_id) REFERENCES leads(lead_id));
+CREATE TABLE IF NOT EXISTS predictions (id INTEGER PRIMARY KEY AUTOINCREMENT,lead_id TEXT NOT NULL,probability REAL NOT NULL CHECK(probability BETWEEN 0 AND 1),priority TEXT NOT NULL,recommendation TEXT NOT NULL,created_at TEXT DEFAULT CURRENT_TIMESTAMP,FOREIGN KEY(lead_id) REFERENCES leads(lead_id));
