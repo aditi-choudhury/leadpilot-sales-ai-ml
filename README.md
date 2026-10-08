@@ -30,8 +30,8 @@ F --> H[(SQLite optional)]
 ## Installation and run
 Requires Python 3.10+ (recommended 3.11).
 ```bash
-git clone <your-repository-url>
-cd sales-ai-ml
+git clone https://github.com/aditi-choudhury/leadpilot-sales-ai-ml.git
+cd leadpilot-sales-ai-ml
 python -m venv .venv
 # Activate: Windows: .venv\Scripts\activate ; macOS/Linux: source .venv/bin/activate
 pip install -r requirements.txt
